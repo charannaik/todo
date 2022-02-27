@@ -18,7 +18,7 @@ node {
 
 	stage('Deploy') {
 		// sh ("docker run -dp 3000:3000 -v /var/log/:/var/log/ ${dockerhubaccountid}/${application}:${BUILD_NUMBER}")
-		sh '''if [ ! containerid="$(docker ps -a | grep ${dockerhubaccountid}/${application} | docker ps -q)" ]; then
+		sh '''if [  containerid="$(docker ps -a | grep ${dockerhubaccountid}/${application} | docker ps -q)" ]; then
 				("docker stop $containerid")
 				("docker rm $containerid")
   			else
